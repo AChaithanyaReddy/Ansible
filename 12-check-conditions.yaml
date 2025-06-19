@@ -1,8 +1,9 @@
 - name: check condition if the given number is 12 or not
   hosts:  local
   connection: local
-  vars_prompt:
-    my_number: 12
+  vars:
+    my_nymber: 12
+  # vars_prompt:
   # - name: my_number
   #   prompt: please enter the number
   #   private:  false
