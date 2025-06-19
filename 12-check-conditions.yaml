@@ -2,7 +2,7 @@
   hosts:  local
   connection: local
   vars:
-    my_nymber: 12
+    my_number: 12
   # vars_prompt:
   # - name: my_number
   #   prompt: please enter the number
