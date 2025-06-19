@@ -1,0 +1,25 @@
+- name: create ec2 and r53 records
+  hosts: local
+  connection: local
+  vars:
+    subnet_id: subnet-0c2d269f1ba5e257d
+    sg_id:  sg-0dbbb557f06a8ba60
+    ami_id: ami-09c813fb71547fc4f
+    instances:
+    - mysql
+    - backend
+    - frontend
+  tasks:
+  - name: create ec2 instance
+    amazon.aws.ec2_instance:
+      name: "{{item}}"
+      vpc_subnet_id:  "{{subnet_id}}""
+      instance_type: "t3.micro"
+      security_group: "{{sg_id}}"
+      image_id: "{{ami_id}}"
+    loop: "{{instances}}"
+    register: ec2_instances
+
+  - name: track ip address
+    ansible.builtin.debug:
+      msg:  "{{ec2_instances}}"
