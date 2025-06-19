@@ -1,0 +1,20 @@
+- name: check condition if the given number is 12 or not
+  hosts:  local
+  connection: local
+  vars_prompt:
+  - name: number
+    prompt: please enter the number
+    private:  false
+  tasks:
+  - name: checking conditions if it is equal to 12
+    ansible.builtin.debug:
+      msg:  "given {{number}} is 12"
+    when: number == 12
+  - name: checking conditions if number is less than 12
+    ansible.builtin.debug:
+      msg:  "given {{number}} is less than 12"
+    when: number < 12
+  - name: checking conditions if number is greater than 12
+    ansible.builtin.debug:
+      msg:  "given {{number}} is  greater than 12"
+    when: number > 12
