@@ -1,0 +1,11 @@
+- name: variables from prompt
+  hosts: backend
+  vars_prompt:
+  - name: course
+    prompt: please enter the course name
+  - name: cloud
+    prompt: please enter the cloud name
+  tasks:
+  - name: print the course information
+    ansible.builtin.debug:
+      msg: "Hi, i am learning {{course}} in {{cloud}}"
