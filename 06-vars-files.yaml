@@ -1,0 +1,8 @@
+- name: variables from files
+  hosts: backend
+  vars_files:
+  - vars.yaml
+  tasks:
+  - name: print the course information
+    ansible.builtin.debug:
+      msg: "Hi, i am learning {{course}} with {{cloud}}, practicing Ansible variables"
