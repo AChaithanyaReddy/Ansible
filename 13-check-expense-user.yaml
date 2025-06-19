@@ -2,7 +2,7 @@
   hosts:  backend
   become: yes
   tasks:
-  - name: checking user
+  - name: checking user exist or not
     ansible.builtin.command: id expense
     register: user
     ignore_errors: True
@@ -10,3 +10,7 @@
   - name: print the user information
     ansible.builtin.debug:
       msg:  "output is -- {{user}}" 
+
+  - name: create user
+    ansible.builtin.command:  useradd expense
+    when: user.rc != 0
