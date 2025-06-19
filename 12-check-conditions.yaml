@@ -2,19 +2,19 @@
   hosts:  local
   connection: local
   vars_prompt:
-  - name: number
+  - name: my_number
     prompt: please enter the number
     private:  false
   tasks:
   - name: checking conditions if it is equal to 12
     ansible.builtin.debug:
-      msg:  "given {{number}} is 12"
-    when: number == 12
+      msg:  "given {{my_number}} is 12"
+    when: my_number == 12
   - name: checking conditions if number is less than 12
     ansible.builtin.debug:
-      msg:  "given {{number}} is less than 12"
-    when: number < 12
+      msg:  "given {{my_number}} is less than 12"
+    when: my_number < 12
   - name: checking conditions if number is greater than 12
     ansible.builtin.debug:
-      msg:  "given {{number}} is  greater than 12"
-    when: number > 12
+      msg:  "given {{my_number}} is  greater than 12"
+    when: my_number > 12
