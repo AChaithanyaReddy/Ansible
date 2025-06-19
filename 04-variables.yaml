@@ -1,0 +1,7 @@
+- name: variables to print
+  hosts: backend
+  become: yes
+  tasks:
+  - name: print the information
+    ansible.buitin.debug:
+      msg: "Hi, i am learning devops with AWS, practicing Ansible variables"
