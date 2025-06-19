@@ -1,7 +1,10 @@
 - name: variables to print
   hosts: backend
+  vars:
+    course: devops
+    cloud: aws
   become: yes
   tasks:
   - name: print the information
     ansible.builtin.debug:
-      msg: "Hi, i am learning devops with AWS, practicing Ansible variables"
+      msg: "Hi, i am learning {{course}} with {{cloud}}, practicing Ansible variables"
