@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   tasks:
-  - name: Install ntpdate
+  - name: Install nginx
     ansible.builtin.package:
       name: nginx
       state: present
