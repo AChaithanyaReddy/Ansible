@@ -4,3 +4,10 @@
   - name: play-01 task-01
     ansible.builtin.debug:
       msg: "this is from play-01 task-01"
+
+- name: play-02
+  hosts: backend
+  tasks:
+  - name: play-02 task-01
+    ansible.builtin.debug:
+      msg: "this is from play-02 task-01"
