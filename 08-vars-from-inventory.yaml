@@ -1,0 +1,6 @@
+- name: variables from files
+  hosts: backend
+  tasks:
+  - name: print the information from inventory
+    ansible.builtin.debug:
+      msg: "Hi, i am learning {{course}} with {{cloud}}, practicing Ansible variables"
