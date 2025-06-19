@@ -1,0 +1,7 @@
+- name: demo on filters and functions
+  hosts: backend
+  become: yes
+  tasks:
+  - name: demo to practice filters
+    ansible.builtin.debug:
+      msg:  "Hello {{course | default ('Ansible')}}"
