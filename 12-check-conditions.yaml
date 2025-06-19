@@ -2,9 +2,10 @@
   hosts:  local
   connection: local
   vars_prompt:
-  - name: my_number
-    prompt: please enter the number
-    private:  false
+    my_number: 12
+  # - name: my_number
+  #   prompt: please enter the number
+  #   private:  false
   tasks:
   - name: checking conditions if it is equal to 12
     ansible.builtin.debug:
