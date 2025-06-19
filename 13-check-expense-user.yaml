@@ -1,0 +1,11 @@
+- name: check user exist or not, if not exist create user
+  hosts:  backend
+  become: yes
+  tasks:
+  - name: checking user
+    ansible.builtin.command: id expense
+    register: user
+
+  - name: print the user information
+    ansible.builtin.debug:
+      msg:  "output is -- {{user}}" 
