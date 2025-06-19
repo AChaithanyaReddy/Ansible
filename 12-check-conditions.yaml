@@ -1,22 +1,22 @@
 - name: check condition if the given number is 12 or not
   hosts:  local
   connection: local
-  vars:
-    my_number: 12
-  # vars_prompt:
-  # - name: my_number
-  #   prompt: please enter the number
-  #   private:  false
+  # vars:
+  #   my_number: 12
+  vars_prompt:
+  - name: my_number
+    prompt: please enter the number
+    private:  false
   tasks:
   - name: checking conditions if it is equal to 12
     ansible.builtin.debug:
       msg:  "given {{my_number}} is 12"
-    when: my_number == 12
+    when: my_number | int == 12
   - name: checking conditions if number is less than 12
     ansible.builtin.debug:
       msg:  "given {{my_number}} is less than 12"
-    when: my_number < 12
+    when: my_number | int < 12
   - name: checking conditions if number is greater than 12
     ansible.builtin.debug:
       msg:  "given {{my_number}} is  greater than 12"
-    when: my_number > 12
+    when: my_number | int > 12
